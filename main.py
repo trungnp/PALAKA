@@ -25,7 +25,7 @@ with overview:
     f = pd.concat(sample, ignore_index=True)
     """
     st.code(code, language='python')
-    overview_df = pd.read_csv('../overview.csv')
+    overview_df = pd.read_csv('overview.csv')
     overview_df['original_pct'] = (overview_df['original'] / overview_df['original'].sum() * 100).round(2)
     overview_df['sample_pct'] = (overview_df['sample'] / overview_df['sample'].sum() * 100).round(2)
     overview_df = overview_df.rename(columns={'st': 'id'})
@@ -80,7 +80,7 @@ with experiment:
 
 
     if 'data' not in st.session_state:
-        df = pd.read_csv('../sample.csv')
+        df = pd.read_csv('sample.csv')
         st.session_state['data'] = df
 
     df = st.session_state['data']
